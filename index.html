@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Speedful</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="debugger" id="debug" style="display: none;">
+            <div>FPS:&nbsp<div id="fpsDebug">0</div></div>
+            <div>TPS:&nbsp<div id="tpsDebug">0</div></div>
+            <div>X:&nbsp<div id="xCoordDebug"></div></div>
+            <div>Y:&nbsp<div id="yCoordDebug"></div></div>
+            <div>Speed:&nbsp<div id="speedDebug">0</div></div>
+            <div>Acceleration:&nbsp<div id="accelerationDebug">0</div></div>
+            <div>Angle:&nbsp<div id="angleDebug">0</div></div>
+            <div>X Velocity:&nbsp<div id="velocityXDebug">0</div></div>
+            <div>Y Velocity:&nbsp<div id="velocityYDebug">0</div></div>
+            <div>Damaged:&nbsp<div id="damagedDebug"></div></div>
+            <div>Tile:&nbsp<div id="tileDebug"></div></div>
+            <div>Extra:&nbsp<div id="extraDebug"></div></div>
+            <div class="debugButtons">
+                <div class="debugCheckBox">Show Path <input type="checkbox" id="showPathTick" checked></div>
+                <div class="debugCheckBox">Show Tile <input type="checkbox" id="showTileTick" checked></div>
+                <div class="debugCheckBox">Show Subtile <input type="checkbox" id="showSubtileTick" checked></div>
+                <div class="debugCheckBox">Show Velocity <input type="checkbox" id="showVelocityTick" checked></div>
+                <div class="debugCheckBox">Show Collision <input type="checkbox" id="showCollisionTick" checked></div>
+                <div class="debugCheckBox">Show Polygon <input type="checkbox" id="showPolygonTick" checked></div>
+            </div>
+            <div id="controlsDebug">Controls:</div>
+        </div>
+        <div id="hud">
+            <div class="carTextHud">
+                <div>Speed: <div id="speedometerText">0 km/h</div></div>
+                <div>Damaged: <div id="damageometerText">0%</div></div>
+            </div>
+            <div id="countdown">3</div>
+        </div>
+        <div id="playerList" style="display: none;">Players:
+            <div class="player">You <div id="damaged">Damaged: </div><div id="position">Position: </div></div>
+        </div>
+        <div id="settings" class="menus" style="display: none;">
+            <div class="menuTitle">Settings</div>
+            <div class="menuSubtitle">Change the game settings</div>
+            <div class="menuButtons">
+                <div id="settingsRotateCameraButton" onclick="toggleRotateCamera()">Rotate Camera: On</div>
+                <div id="settingsCinematicCameraButton" onclick="toggleCinmaticCamera()">Cinematic Camera: On</div>
+                <div id="settingsMinimapSizeButton" onclick="changeMinimapSize()">Minimap Size: Default</div>
+                <div id="settingsRotateMinimapButton" onclick="toggleRotateMinimap()">Rotate Minimap: On</div>
+                <div id="settingsMuteButton" onclick="toggleMute()">Mute: Off</div>
+                <div id="settingsBackButton" onclick="hideSettings()">Back</div>
+            </div>
+        </div>
+        <div id="startMenu" class="menus" style="display: none;">
+            <div class="menuTitle">Map Options</div>
+            <div class="menuSubtitle">Change the map options</div>
+            <div class="menuButtons">
+                <div id="startGameButton" onclick="startGame()">Start Game</div>
+                <div id="numberOfBotCarsButton" onclick="showNumberOfBotCars()">Number of Bot Cars: 1</div>
+                <div id="botDifficultyButton" onclick="showBotDifficulty()">Bot Difficulty: Medium</div>
+                <div id="mapDifficultyButton" onclick="showMapDifficulty()">Map Difficulty: Medium</div>
+                <div id="settingsBackButton" onclick="hideMapOptions()">Back</div>
+            </div>
+        </div>
+        <div id="finishedMenu" class="menus" style="display: none;">
+            <div class="menuTitle" id="finishedTitle">You </div>
+            <div class="menuSubtitle" id="finishedTime">Time Taken: </div>
+            <div class="menuButtons">
+                <div id="resetGameButton" onclick="resetGame()">Restart</div>
+            </div>
+        </div>
+        <div id="pausedMenu" class="menus" style="display: none;">
+            <div class="menuTitle">Speedful</div>
+            <div class="menuSubtitle">Game Paused</div>
+            <div class="menuButtons">
+                <div id="resumeGameButton" onclick="resumeGame()">Resume Game</div>
+                <div id="settingsButton" onclick="showSettings()">Settings</div>
+                <div id="helpButton" onclick="showHelp()">Help</div>
+                <div id="exitGameButton" onclick="exitGame()">Exit Game</div>
+            </div>
+        </div>
+        <div id="menu" class="menus" style="display: none;">
+            <div id="mainMenuTitle" class="menuTitle">Speedful</div>
+            <div id="mainMenuSubtitle" class="menuSubtitle">A Car Racing Game</div>
+            <div class="menuButtons">
+                <div id="startButton" onclick="showMapOptions()">Start</div>
+                <div id="resumeButton" style="display: none;" onclick="resumeGame()">Resume Game</div>
+                <div id="joinButton" onclick="joinGame()">Join Game</div>
+                <div id="settingsButton" onclick="showSettings()">Settings</div>
+                <div id="helpButton" onclick="showHelp()">Help</div>
+            </div>
+        </div>
+        <div class="minimapContainer" id="minimapContainer"><canvas id="minimapCanvas"></canvas></div>
+        <canvas id="carCanvas"></canvas>
+        <img src="./src/background.png" id="background" style="display: none;">
+        <script src="utils.js"></script>
+        <script src="tiles.js"></script>
+        <script src="road.js"></script>
+        <script src="controls.js"></script>
+        <script src="car.js"></script>
+        <script src="game.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

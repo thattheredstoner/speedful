@@ -1,0 +1,267 @@
+body {
+    font-family: PressStart2P, Arial, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    background: #808080;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    image-rendering: pixelated;
+    display: block;
+}
+
+#carCanvas {
+    background: #ddc3a8;
+}
+
+.minimapContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30vh;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    overflow: hidden;
+}
+
+#minimapCanvas {
+    height: 30vh;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+.menus {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.menuTitle {
+    font-size: 30px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.menuSubtitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.menuButtons {
+    padding: 15px;
+    background: #fff;
+    color: #000;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuButtons > * {
+    padding: 5px 10px;
+}
+
+.menuButtons > div:not(#serverIPInput):not(#serverPortInput):not(#leaderboardList > *):hover {
+    background: #000;
+    color: #fff;
+}
+
+.serverDetails {
+    background: black;
+    color: white;
+    height: 26px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.cursor {
+    font-size: 12px;
+    background: white;
+    color: white;
+    position: relative;
+    opacity: 1;
+    height: 1.5em;
+    width: 3px;
+    max-width: 3px;
+    overflow: hidden;
+    text-indent: -5px;
+    display: inline-block;
+    text-decoration: blink;
+    animation: blinker .5s step-end infinite alternate;
+}
+
+@keyframes blinker {  
+    50% { opacity: 0.0; }
+}
+
+#settings {
+    z-index: 1500;
+}
+
+#settings > .menuButtons, #startMenu > .menuButtons {
+    width: 380px;
+}
+
+#hud {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.carTextHud {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 10%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    z-index: 100;
+}
+
+.carTextHud > * {
+    line-height: 25px;
+}
+
+#countdown {
+    transform: scale(0);
+    position: absolute;
+    width: 12%;
+    height: 12%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    z-index: 100;
+    transition: all 0.1s ease-in-out;
+}
+
+#playerList {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    width: 28vw;
+    height: fit-content;
+    padding: 15px;
+    font-size: 0.6vw;
+    z-index: 1001;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+#playerList > * {
+    margin: 5px 0;
+}
+
+.player {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 5px;
+}
+
+.debugger {
+    position: absolute;
+    width: 250px;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    font-family: monospace;
+    font-size: 12px;
+    z-index: 10000;
+}
+
+.debugger > * {
+    display: flex;
+    margin: 3px 0;
+}
+
+.debugButtons {
+    color: #fff;
+    font-family: monospace;
+    font-size: 12px;
+    flex-direction: column;
+    margin: 0;
+}
+
+.debugCheckBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert {
+    color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closeAlertButton {
+    font-family: PressStart2P, Arial, sans-serif;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    background: #fff;
+    color: #000;
+    border: none;
+}
+
+.closeAlertButton:hover {
+    background: rgb(210, 210, 210);
+    color: #000;
+}
+
+@font-face {
+    font-family: 'PressStart2P';
+    src: url(./src/fonts/PressStart2P-Regular.ttf) format('woff2');
+}
